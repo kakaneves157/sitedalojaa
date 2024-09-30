@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techphones</title>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="maçaiphone.webp" alt="Maçã da Apple" style="height: 70px; " />
+        <h1>Techphones</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="search-bar">
+            <input type="text" id="searchInput" placeholder="Pesquisar iPhones..." onkeyup="searchiPhones()">
+        </section>
+
+        <section id="gallery" class="gallery">
+            <h2>Galeria de iPhones</h2>
+            <div class="image-grid" id="iphoneGallery">
+                <img src="iphone-12.jpg" alt="iPhone 12" onclick="openTab(event, 'iphone12')">
+                <img src="iphone-13.jpg" alt="iPhone 13" onclick="openTab(event, 'iphone13')">
+                <img src="iphone-14.jpg" alt="iPhone 14" onclick="openTab(event, 'iphone14')">
+                <img src="iphone-15.jpg" alt="iPhone 15" onclick="openTab(event, 'iphone15')">
+                <img src="iphone-se.jpg" alt="iPhone SE" onclick="openTab(event, 'iphoneSE')">
+            </div>
+        </section>
+
+        <section class="tabs">
+            <div id="iphone12" class="tab-content">
+                <h2>iPhone 12</h2>
+                <p>Preço: R$ 4.999</p>
+                <p>Display: 6.1 inches</p>
+                <p>Camera: Dual 12MP</p>
+                <p>Chip: A14 Bionic</p>
+                <p>Bateria: Até 17 horas de reprodução de vídeo</p>
+                <p>Armazenamento: 64GB, 128GB, 256GB</p>
+            </div>
+
+            <div id="iphone13" class="tab-content" style="display: none;">
+                <h2>iPhone 13</h2>
+                <p>Preço: R$ 5.499</p>
+                <p>Display: 6.1 inches</p>
+                <p>Camera: Dual 12MP</p>
+                <p>Chip: A15 Bionic</p>
+                <p>Bateria: Até 19 horas de reprodução de vídeo</p>
+                <p>Armazenamento: 128GB, 256GB, 512GB</p>
+            </div>
+
+            <div id="iphone14" class="tab-content" style="display: none;">
+                <h2>iPhone 14</h2>
+                <p>Preço: R$ 6.499</p>
+                <p>Display: 6.1 inches</p>
+                <p>Camera: Dual 12MP</p>
+                <p>Chip: A15 Bionic</p>
+                <p>Bateria: Até 20 horas de reprodução de vídeo</p>
+                <p>Armazenamento: 128GB, 256GB</p>
+            </div>
+
+            <div id="iphone15" class="tab-content" style="display: none;">
+                <h2>iPhone 15</h2>
+                <p>Preço: R$ 7.499</p>
+                <p>Display: 6.1 inches</p>
+                <p>Camera: Dual 12MP</p>
+                <p>Chip: A16 Bionic</p>
+                <p>Bateria: Até 21 horas de reprodução de vídeo</p>
+                <p>Armazenamento: 128GB, 256GB, 512GB</p>
+            </div>
+
+            <div id="iphoneSE" class="tab-content" style="display: none;">
+                <h2>iPhone SE</h2>
+                <p>Preço: R$ 3.999</p>
+                <p>Display: 4.7 inches</p>
+                <p>Camera: 12MP</p>
+                <p>Chip: A15 Bionic</p>
+                <p>Bateria: Até 15 horas de reprodução de vídeo</p>
+                <p>Armazenamento: 64GB, 128GB, 256GB</p>
+            </div>
+        </section>
+
+        <footer id="contact">
+            <h3>Contato</h3>
+            <p>Endereço: Rua São Paulo, 123, Juazeiro do Norte, Ce</p>
+            <p>Telefone: (88) 1234-5678</p>
+            <p>Email: techphones@gmail.com</p>
+        </footer>
+    </main>
+
+    <script>
+        function openTab(event, tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.style.display = 'none');
+            document.getElementById(tabId).style.display = 'block';
+        }
+
+        function searchiPhones() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const gallery = document.getElementById('iphoneGallery');
+            const images = gallery.getElementsByTagName('img');
+
+            Array.from(images).forEach(img => {
+                const altText = img.alt.toLowerCase();
+                img.style.display = altText.includes(input) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
